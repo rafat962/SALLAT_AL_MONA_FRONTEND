@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components{
+  .title{
+    @apply cursor-pointer hover:-translate-x-1 hover:text-thr transition-all duration-200
+  }
+  .fc{
+    @apply flex flex-col items-center
+  }
+  .btn-delete{
+    @apply bg-red-500 hover:bg-red-800 transition-all text-white font-sec px-4 py-2 rounded-2xl cursor-pointer;
+  }
+  .btn-delete{
+    @apply bg-red-500 hover:bg-red-800 transition-all text-white font-sec px-4 py-2 rounded-2xl cursor-pointer;
+  }
+  .btn-update{
+    @apply bg-sec hover:bg-blue-800 transition-all text-white font-sec px-4 py-2 rounded-2xl cursor-pointer
+  }
+}
+
+
+::selection{
+  background-color: rgb(9, 51, 9);
+  color: white;
+}

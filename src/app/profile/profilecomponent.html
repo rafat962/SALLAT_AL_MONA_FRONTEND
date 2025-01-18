@@ -1,0 +1,52 @@
+<app-header></app-header>
+
+
+
+
+<body>
+  <div  class="min-h-screen w-screen p-10   bg-sec flex items-center justify-center">
+    <div [@divstate]="stata" class="grid  grid-cols-4 w-full md:w-3/4  relative  rounded-xl bg-white">
+      <div class=" col-span-4  md:col-span-1    bg-thr space-y-4 py-8 ">
+        <div routerLink="settings" routerLinkActive="active" class="w-full space-x-1  flex items-center px-4 justify-start cursor-pointer" matRipple>
+          <i class='bx bx-cog text-2xl text-sec'></i>
+          <button type="button" class="py-2 text-sec font-sec font-semibold">SETTINGS</button>
+        </div>
+        <div routerLinkActive="active" routerLink="wishlist" class="w-full space-x-1 px-4  flex items-center justify-start cursor-pointer" matRipple>
+          <i class='bx bxs-heart text-2xl text-sec'></i>
+          <button type="button" class="py-2 text-sec font-sec font-semibold">WISH LIST</button>
+        </div>
+        <div routerLinkActive="active" routerLink="myorders" class="w-full space-x-1 px-4  flex items-center justify-start cursor-pointer" matRipple>
+          <i class='bx bxs-truck text-2xl text-sec'></i>
+          <button type="button" class="py-2 text-sec font-sec font-semibold">ORDERS</button>
+        </div>
+        <div *ngIf="role === 'admin'" class="w-full h-1 bg-white mt-32">
+        </div>
+        <!-- admin -->
+        <div class="admin space-y-4 " *ngIf="role === 'admin'">
+          <div routerLinkActive="active" routerLink="addproduct" class="w-full space-x-1 px-4  flex items-center justify-start cursor-pointer" matRipple>
+            <i class='bx bxs-file-plus text-2xl text-sec'></i>
+            <button type="button" class="py-2 text-sec font-sec font-semibold">ADD PRODUCT</button>
+          </div>
+          <div routerLinkActive="active" routerLink="orders" class="w-full space-x-1 px-4  flex items-center justify-start cursor-pointer" matRipple>
+            <i class='bx bx-send text-2xl text-sec' ></i>
+            <button type="button" class="py-2 text-sec font-sec font-semibold">INCOMING ORDERS</button>
+          </div>
+          <div routerLinkActive="active" routerLink="users" class="w-full space-x-1 px-4  flex items-center justify-start cursor-pointer" matRipple>
+            <i class='bx bxs-user-circle text-2xl text-sec'></i>
+            <button type="button" class="py-2 text-sec font-sec font-semibold">USERS</button>
+          </div>
+        </div>
+      </div>
+      <div class=" col-span-4 md:col-span-3  p-10 min-h-screen   bg-white ">
+        <router-outlet></router-outlet>
+      </div>
+  </div>
+  </div>
+</body>
+
+
+
+
+
+<app-footer></app-footer>
+

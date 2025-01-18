@@ -1,0 +1,90 @@
+
+
+<app-header></app-header>
+
+<body>
+  <div class="min-h-screen w-screen p-10   bg-sec flex items-center justify-center">
+    <div [@divstate]="state" class="container max-w-6xl lg:max-w-4xl  relative p-6 lg:p-10 rounded-xl bg-white">
+      <div class="flex flex-col w-full  ">
+        <div class="flex flex-col items-center justify-center space-y-1 mb-8">
+            <p class=" text-2xl lg:text-3xl font-bold font-sanss tracking-wide">Sign Up</p>
+        </div>
+        <form [formGroup]="myform" (ngSubmit)="onsubmit()" class="flex space-y-2 flex-col items-center justify-center  mb-8">
+          <mat-form-field class="w-full">
+            <mat-label>User Name</mat-label>
+            <input matInput required type="email" formControlName="username">
+            <mat-error *ngIf="myform.get('email')?.invalid">Please enter your Name</mat-error>
+          </mat-form-field>
+          <!-- EMAIL -->
+          <mat-form-field class="w-full">
+            <mat-label>Email Address</mat-label>
+            <input matInput required type="email" formControlName="email">
+            <mat-hint>Enter your google account address to get all new offers</mat-hint>
+            <mat-error *ngIf="myform.get('email')?.invalid">Please enter a valid email address</mat-error>
+          </mat-form-field>
+          <!-- PASSWORD -->
+          <mat-form-field class="w-full">
+            <mat-label>Password</mat-label>
+            <input matInput required type="password" formControlName="password">
+            <mat-error *ngIf="myform.get('password')?.invalid">Please enter your password</mat-error>
+          </mat-form-field>
+          <!-- CONFIRM PASSWORD -->
+          <mat-form-field class="w-full">
+            <mat-label>Confirm Password</mat-label>
+            <input matInput required type="password" formControlName="confirmPassword">
+            <mat-error *ngIf="myform.get('confirmPassword')!=myform.get('password')">must match password</mat-error>
+          </mat-form-field>
+          <!-- PHONE NUMBER -->
+          <mat-form-field class="w-full">
+            <mat-label>Enter your phone number</mat-label>
+            <input matInput required type="number" formControlName="phone">
+            <mat-error *ngIf="myform.get('phone')?.invalid">Please enter your phone number</mat-error>
+          </mat-form-field>
+          <!-- CITY -->
+          <mat-form-field class="w-full">
+            <mat-label>City</mat-label>
+            <input matInput  type="text" formControlName="city">
+          </mat-form-field>
+          <!-- STREET -->
+          <mat-form-field class="w-full">
+            <mat-label>Street</mat-label>
+            <input matInput  type="text" formControlName="street">
+          </mat-form-field>
+          <!-- location MAP -->
+
+          <div class="max-w-6xl w-full mx-auto space-y-4 flex flex-col items-center overflow-hidden rounded-xl mb-4">
+            <p class=" text-lg font-sec mx-auto text-center mb-4 lg:text-xl font-bold font-sanss tracking-wide">Pick your location (optional)</p>
+            <button type="button" (click)="locateCurrentLocation()" class="bg-sec text-white font-sec rounded px-4 py-2 hover:bg-for transition-all duration-180 text-lg mx-auto text-center">
+              Pick my current location
+            </button>
+            <div id="viewDiv" class="w-full h-[26rem] rounded-lg"></div>
+          </div>
+
+          <!-- --------- -->
+            <div class="flex flex-col lg:items-center  w-full  space-y-2 lg:space-y-0 lg:justify-between items-center">
+              <button type="submit" class="w-full text-white text-lg font-sec  lg:p-4 bg-blue-800 text-center rounded-lg p-6
+                  hover:opacity-90 hover:-translate-y-1 transition-all duration-150 hover:shadow-xl">
+                  SIGNUP
+              </button>
+            </div>
+        </form>
+        <!-- bottom -->
+        <hr>
+        <div class="flex flex-col items-center justify-center space-y-6 my-6 mb-8">
+          <p class="txt font-bold cursor-pointer" routerLink="/login">or log In</p>
+          <div
+          class="flex flex-col space-x-0 w-full space-y-6 md:flex-row md:space-x-4 md:space-y-0">
+        </div>
+        </div>
+      </div>
+      <!-- <div class=" hidden lg:flex w-1/2  items-end justify-end  absolute h-full right-0 top-0 ">
+          <img class=" h-full rounded-r-xl" src="../../../assets/undraw_my_app_re_gxtj.svg" alt="">
+      </div> -->
+  </div>
+
+  </div>
+</body>
+
+
+
+<app-footer></app-footer>

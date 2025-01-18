@@ -1,0 +1,27 @@
+
+
+
+
+#sub{
+  direction: rtl;
+}
+
+.default{
+  background-color: rgb(187, 179, 179);
+  color: black;
+  transition: all ease 0.4s;
+}
+.default:hover{
+  background-color: rgb(211, 201, 201);
+}
+
+.like{
+  background-color: rgb(35, 35, 155);
+  color: white;
+  transition: all ease 0.4s;
+}
+.like:hover{
+  background-color: rgb(29, 29, 216);
+}
+
+

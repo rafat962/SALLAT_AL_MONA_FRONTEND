@@ -1,0 +1,84 @@
+
+
+
+
+
+
+<div class="w-full p-2">
+<!-- form stage -->
+<div class="w-full space-y-2">
+  <h1 class="text-lg font-prim text-sec">main_img</h1>
+  <input type="file" (change)="onpick($event)" accept="image/*">
+</div>
+<div class="flex items-start max-w-xs">
+  <img class="max-w-xs" [src]="imagePreview" alt="">
+</div>
+<div class="w-full space-y-2">
+  <h1 class="text-lg font-prim text-sec">sub_img</h1>
+  <input multiple type="file" (change)="onSubImgChange($event)" accept="image/*">
+  <div class="grid grid-cols-3 gap-4 w-full">
+    <img *ngFor="let preview of imagePreviews" class="max-w-[10rem]" [src]="preview" alt="">
+  </div>
+</div>
+
+
+
+<form [formGroup]="myform" (ngSubmit)="onSubmit()" class="flex flex-col items-start space-y-4 w-full">
+  <div class="w-full space-y-2">
+    <h1 class="text-lg font-prim text-sec">Name</h1>
+    <mat-form-field class="w-full">
+      <mat-label>Name</mat-label>
+      <input matInput required type="text" formControlName="name">
+    </mat-form-field>
+  </div>
+  <div class="w-full space-y-2">
+    <h1 class="text-lg font-prim text-sec">price</h1>
+    <mat-form-field class="w-full">
+      <mat-label>price</mat-label>
+      <input matInput  type="number" formControlName="price">
+    </mat-form-field>
+  </div>
+  <div class="w-full space-y-2">
+    <h1 class="text-lg font-prim text-sec">discount</h1>
+    <mat-form-field class="w-full">
+      <mat-label>discount</mat-label>
+      <input matInput  type="number" formControlName="discount">
+    </mat-form-field>
+  </div>
+  <div class="w-full space-y-2">
+    <h1 class="text-lg font-prim text-sec">size</h1>
+    <mat-form-field class="w-full">
+      <mat-label>size</mat-label>
+      <input matInput  type="text" formControlName="size">
+    </mat-form-field>
+  </div>
+  <div class="w-full space-y-2">
+    <h1 class="text-lg font-prim text-sec">ingredients</h1>
+    <mat-form-field class="w-full">
+      <mat-label>ingredients</mat-label>
+      <input matInput  type="text" formControlName="ingredients">
+    </mat-form-field>
+  </div>
+  <mat-select formControlName="category" placeholder="اختار التصنيف" class="font-sec border p-4 bg-gray-200 rounded-xl">
+      <mat-option value="زعتر">زعتر و سماق</mat-option>
+      <mat-option value="مكسرات">مكسرات</mat-option>
+      <mat-option value="لبنة">لبنة</mat-option>
+      <mat-option value="زيت و زيتون">زيت و زيتون</mat-option>
+      <mat-option value="مجففات و ورقيات">مجففات و ورقيات</mat-option>
+      <mat-option value="جميدوسمن">جميد و سمن</mat-option>
+      <mat-option value="مربي و عسل و حلاوة">مربي و عسل و حلاوة</mat-option>
+      <mat-option value="مخلل">مخلل</mat-option>
+      <mat-option value="خل و دبس">خل و دبس</mat-option>
+      <mat-option value="مشكلات">مشكلات</mat-option>
+      <mat-option value="العروض">عروض</mat-option>
+  </mat-select>
+  <div class="w-full space-y-2">
+    <h1 class="text-lg font-prim text-sec">code</h1>
+    <mat-form-field class="w-full">
+      <mat-label>code</mat-label>
+      <input matInput  type="text" formControlName="code">
+    </mat-form-field>
+  </div>
+  <button type="submit" matRipple class="bg-sec ml-auto text-white font-prim px-5 py-2 rounded-full hover:brightness-110 transition-all duration-200">SAVE SETTINGS</button>
+</form>
+</div>

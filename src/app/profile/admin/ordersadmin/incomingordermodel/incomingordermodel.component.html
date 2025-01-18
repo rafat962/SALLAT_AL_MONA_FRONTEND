@@ -1,0 +1,44 @@
+<body class="bg-sec">
+
+  <h2 mat-dialog-title>Order details</h2>
+  <mat-dialog-content >
+    <!-- products -->
+    <div class="grid gap-2 md:gap-6 grid-cols-2 lg:grid-cols-3 rounded-xl">
+      <!-- card -->
+      <div class="flex flex-col items-center bg-for rounded-xl" *ngFor="let x of data.data;let i = index">
+        <div class="group overflow-hidden relative rounded-t-lg cursor-pointer">
+          <h1>{{x.main_img}}</h1>
+          <img class="group-hover:scale-105 transition-all duration-200" src="{{x?.main_img}}" >
+          <div class=" absolute top-0" *ngIf="x.discount>0">
+            <i class='bx bxs-discount bx-tada text-4xl text-sec' ></i>
+          </div>
+        </div>
+        <div class="p-2 md:p-4 rounded-xl flex flex-col items-center space-y-4 min-w-full ">
+          <!-- header -->
+          <div class="fc space-y-1 ">
+            <h1 class=" title text-end font-sec font-semibold text-white max-w-md md:leading-10 tracking-wide text-sm md:text-lg lg:text-xl">{{x.product.name}}</h1>
+            <div class="flex items-center justify-center space-x-2" *ngIf="x.discount>0">
+              <p class="text-mg text-white">{{x.finalPrice}}KWD</p>
+              <p class="text-mg text-thr line-through">{{x.price}}KWD</p>
+            </div>
+          </div>
+          <div class=" outline w-full outline-1 outline-thr"></div>
+          <!-- content -->
+          <div class="flex space-y-2 flex-col w-full items-center ">
+
+            <div class="flex w-full items-center justify-center space-x-1 md:space-x-2">
+              <div class="fc">
+                <h1 class="w-full font-sec text-center font-semibold  text-xl text-white">الكمية : {{x.quantity}}</h1>
+                <h1 class="w-full font-sec font-semibold  text-xl text-white">اجمالي السعر : {{x.quantity * x.product.price}}</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <!-- end -->
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close>Close</button>
+  </mat-dialog-actions>
+</body>

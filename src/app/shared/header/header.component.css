@@ -1,0 +1,39 @@
+#buttons:hover{
+  color: black !important;
+  transition: all ease 0.4;
+}
+
+
+.top,
+.middle,
+.bottom{
+  position: absolute;
+  height: 2px;
+  width: 24px;
+  background-color: gray;
+  top:calc(50% - 2px);
+  transition:all ease 0.2s
+}
+
+
+.top{
+  transform: translateY(-7px);
+
+}
+.bottom{
+  transform: translateY(7px);
+  transition-delay: 0.1s;
+}
+.middle{
+  transition: all 0.3s ease;
+}
+.open .top{
+  transform: rotate(-45deg);
+}
+.open .bottom{
+  transform: rotate(45deg);
+}
+.open .middle{
+  transform:scale(0);
+}
+

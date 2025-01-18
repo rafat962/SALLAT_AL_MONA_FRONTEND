@@ -1,0 +1,62 @@
+
+<app-header></app-header>
+<body >
+  <div  class="min-h-screen w-screen p-4 md:p-10   bg-sec flex items-center justify-center">
+    <div [@divstate]="stata" class="container max-w-7xl lg:max-w-4xl  relative p-6 lg:p-10 rounded-xl bg-white">
+      <div class="flex flex-col w-full lg:w-1/2 lg:pr-6">
+        <div class="flex flex-col space-y-1 mb-8">
+            <p class=" text-2xl lg:text-3xl font-bold font-sanss tracking-wide">Log In</p>
+            <p class="txt">
+              Discover delicious flavors and explore our collection of artisanal foods.
+              Log in to your account to access exclusive recipes, culinary tips, and more!
+              </p>
+        </div>
+        <!-- form stage -->
+        <form [formGroup]="myform" (ngSubmit)="onSubmit()" class="flex flex-col items-center justify-center space-y-0 mb-8">
+          <mat-form-field class="w-full">
+            <mat-label>Email Address</mat-label>
+            <input matInput required type="email" formControlName="email">
+            <mat-error *ngIf="myform.get('email')?.invalid">Please enter a valid email address</mat-error>
+          </mat-form-field>
+          <mat-form-field class="w-full">
+            <mat-label>Password</mat-label>
+            <input matInput required type="password" formControlName="password">
+            <mat-error *ngIf="myform.get('password')?.invalid">Please enter your password</mat-error>
+          </mat-form-field>
+          <div class="flex flex-col w-full lg:flex-row space-y-2 lg:space-y-0 lg:justify-between items-center">
+            <p class="txt text-center lg:text-start">
+              Forgot your password?
+            </p>
+            <button type="submit" class="w-full text-white text-lg font-sec lg:w-36 lg:p-4 bg-blue-800 text-center rounded-lg p-6
+                    hover:opacity-90 hover:-translate-y-1 transition-all duration-150 hover:shadow-xl">
+              NEXT
+            </button>
+          </div>
+        </form>
+
+        <!-- bottom -->
+        <hr>
+        <div class="flex flex-col items-center justify-center space-y-6 my-6 mb-8">
+          <p class="txt font-bold cursor-pointer" routerLink="/signup">or Sign Up</p>
+          <div
+          class="flex flex-col space-x-0 w-full space-y-6 md:flex-row md:space-x-4 md:space-y-0"
+        >
+          <!-- <button (click)="loginWithGoogle()"
+            class="flex items-center justify-center py-2 space-x-3 border border-gray-300 rounded shadow-sm hover:bg-opacity-30 hover:shadow-lg hover:-translate-y-0.5 transition duration-150 md:w-full"
+          >
+            <img src="../../../assets/google.png" alt="" class="w-9" />
+            <span class="font-thin">Google</span>
+          </button> -->
+        </div>
+        </div>
+      </div>
+      <div class=" hidden lg:flex w-1/2  items-end justify-end absolute object-contain h-5/6 right-0 bottom-20 ">
+          <img class=" h-full rounded-r-xl  object-cover" src="../../../assets/undraw_login_re_4vu2.svg" alt="">
+      </div>
+  </div>
+
+  </div>
+</body>
+
+
+<app-footer></app-footer>

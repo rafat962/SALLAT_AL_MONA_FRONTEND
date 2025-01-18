@@ -1,0 +1,89 @@
+<app-header style=" z-index: 999;"></app-header>
+
+
+
+<body class="bg-sec w-full">
+  <div [@divstate]="state" class=" min-h-screen max-w-7xl mx-auto p-4 py-16 md:p-20" *ngIf="cartState === 'empty'">
+    <div class=" fc mx-auto shadow-2xl cursor-pointer  transition-all duration-150 p-6 md:p-8 max-w-3xl border-2 space-y-4 border-for rounded-2xl text-center">
+      <h1 class="title font-sec font-semibold text-white max-w-md md:leading-10 tracking-wide text-2xl md:text-2xl lg:text-3xl">YOUR CART IS EMPTY</h1>
+      <button routerLink="../products/all" class="bg-for font-sec font-semibold text-xl rounded-2xl p-4 hover:bg-thr transition-all duration-250">
+        START SHOPPING NOW
+      </button>
+    </div>
+  </div>
+</body>
+
+<body id="cart" *ngIf="cartState === 'full'" >
+<section class="min-h-screen bg-sec">
+    <div [@divstate]="state" class="max-w-7xl mx-auto p-4 md:p-20">
+        <!-- header -->
+        <div class="w-full ">
+        <div class=" fc mx-auto shadow-2xl cursor-pointer  hover:-translate-y-0.5  transition-all duration-150 p-6 md:p-8 max-w-3xl border-2 space-y-4 border-for rounded-2xl text-center">
+          <h1 class="title font-sec font-semibold text-white max-w-md md:leading-10 tracking-wide text-2xl md:text-2xl lg:text-3xl">YOUR SHOPPING CART</h1>
+          <button routerLink="../products/all" class="bg-for font-sec font-semibold text-xl rounded-2xl p-4 hover:bg-thr transition-all duration-250">
+            SHOP MORE
+          </button>
+        </div>
+        </div>
+        <div class="grid gap-3 grid-cols-1 items-start md:grid-cols-3 w-full p-8">
+        <!-- products -->
+            <div class="grid gap-3 col-span-2 grid-cols-2 md:grid-cols-1 " >
+                <!-- card -->
+                <div class="border relative rounded-xl space-y-2 fc md:items-start lg:flex-row md:justify-between" *ngFor="let x of cart;let i = index">
+                    <!-- image -->
+                    <div class="group  overflow-hidden md:rounded-tl-lg rounded-t-lg md:rounded-bl-lg cursor-pointer">
+                        <img class="group-hover:scale-105  transition-all duration-200" src="{{x.product.main_img}}" alt="x.main_img">
+                    </div>
+                    <!-- delete -->
+                    <div (click)="delete(i)" class="absolute cursor-pointer  -top-2 left-0 bg-for hover:bg-red-400 transition-all duration-200 w-[24px] h-[24px] rounded-full">
+                        <p class="mx-auto w-full text-center tracking-wide">X</p>
+                    </div>
+                    <!-- content -->
+                    <div class="fc w-full  p-4  lg:items-end space-y-3">
+                        <h1 class="title text-center md:text-end  font-sec font-semibold text-white max-w-md md:leading-10 tracking-wide text-lg md:text-lg lg:text-xl">{{x.product.name}}</h1>
+                        <h1 class="title text-end  font-sec font-semibold text-white max-w-md md:leading-10 tracking-wide text-lg md:text-xl lg:text-xl">{{x.product.size}}</h1>
+                        <h1 class="title text-end  font-sec font-semibold text-white max-w-md md:leading-10 tracking-wide text-base md:text-base lg:text-xl"><span class="text-gray-800" #onepice>KWD {{x.product.price}}</span> : سعر القطعة </h1>
+                        <!-- quatati -->
+                        <div class="flex items-center border border-for md:w-1/3 w-full">
+                            <div (click)="add(i,x.quantity)" class=" text-xl cursor-pointer active:bg-thr w-1/3 text-center bg-for select-none">+</div>
+                            <div  class="w-1/3 text-center" #qun>{{x.quantity}}</div>
+                            <div (click)="minus(i,x.quantity)" class="text-xl cursor-pointer active:bg-thr w-1/3 text-center bg-for select-none">-</div>
+                        </div>
+                        <h1 class="title font-sec font-semibold text-white max-w-md md:leading-10 tracking-wide text-base md:text-lg lg:text-xl"><span class="text-gray-800"  >KWD {{+qun.innerHTML * x.product.price}}</span> : الاجمالي</h1>
+                    </div>
+                </div>
+            </div>
+        <!-- payments -->
+
+        <div class="  py-8 px-8 space-y-8 rounded-2xl max-w-6xl mx-auto mt-8 md:mt-0 border border-for">
+          <h1 class="title  text-center font-sec font-semibold text-white max-w-md md:leading-10 tracking-wide text-2xl md:text-2xl lg:text-3xl">تفاصيل الشراء</h1>
+          <hr>
+          <div class="flex flex-col space-y-4 items-end ">
+            <h1 class="title text-end  font-sec font-semibold text-white  md:leading-10 tracking-wide text-xl md:text-xl lg:text-2xl">{{totle}} KWD : إجمالي سعر الطلب </h1>
+            <button class="w-full bg-for rounded-2xl px-4 py-4 flex items-center justify-center space-x-2
+            hover:bg-thr transition-all duration-200 active:bg-blue-400">
+              <i class='bx bxs-credit-card text-2xl mr-2'></i>
+              الدفع اونلاين
+            </button>
+            <button (click)="payonget()" class="w-full bg-for rounded-2xl px-4 py-4 flex items-center justify-center space-x-2
+            hover:bg-thr transition-all duration-200 active:bg-blue-400">
+            <i class='bx bx-store-alt text-2xl mr-2'></i>
+              الدفع عند الإستلام
+            </button>
+          </div>
+        </div>
+    </div>
+
+
+    </div>
+</section>
+
+
+</body>
+
+
+
+
+
+<app-footer style="z-index: 999;"></app-footer>
+

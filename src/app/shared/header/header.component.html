@@ -1,0 +1,67 @@
+
+
+
+
+<header >
+  <div class=" w-full  bg-prim">
+    <div class="relative md:p-2 px-1 max-w-7xl xl:max-w-full xl:px-8  mx-auto flex items-center justify-between">
+      <div class="  object-cover ">
+        <img class="w-16 md:w-20 " src="../../../assets/شعار بدون خلفية.webp" alt="">
+      </div>
+      <h1 routerLink="/products" class="  mt-2  lg:text-4xl md:text-3xl  md:mt-0 text-[1.3rem]  font-sans text-center text-white md:ml-40 cursor-pointer hover:text-for hover:translate-x-0.5 transition-all duration-200">
+        Sallet Almunah
+      </h1>
+      <div class=" hidden md:flex items-center space-x-1  lg:space-x-2">
+        <div class="flex items-center space-x-2 lg:space-x-4 p-4" >
+          <i (click)="gosearch()"  *ngIf="where === 'main' "  class='bx bx-search text-xl lg:text-2xl cursor-pointer hover:text-for hover:translate-x-0.5 transition-all duration-200' ></i>
+          <i (click)="goback()" *ngIf="where === 'all' "  class='bx bx-left-arrow-alt text-2xl lg:text-3xl cursor-pointer hover:text-for hover:translate-x-0.5 transition-all duration-200' ></i>
+          <i (click)="golove()" *ngIf="user" class='bx bx-heart text-xl lg:text-2xl cursor-pointer hover:text-for hover:translate-x-0.5 transition-all duration-200' ></i>
+          <i [matBadge]="num" matBadgeSize="medium" matBadgePosition="after" matBadgeColor="accent" routerLink="../cart" class='bx bx-shopping-bag text-xl lg:text-2xl cursor-pointer hover:text-for hover:translate-x-0.5 transition-all duration-200' ></i>
+        </div>
+        <!-- LOGIN AND SIGNUP -->
+        <div class="flex space-x-3 items-center " *ngIf="!user">
+          <button routerLink="../login" class="p-2 text-lg lg:text-xltext-decoration-none font-sec text-white hover:text-for transition-all duration-200 focus:outline-none active:outline-none">Log In</button>
+          <button routerLink="../signup" href="#" class=" px-3 py-2.5  lg:px-4 lg:py-3 bg-sec rounded-full text-lg lg:text-xl font-sec text-white hover:bg-for transition-all duration-200 hover:-translate-y-0.5  hover:shadow-sm hover:shadow-for">Sign Up</button>
+        </div>
+        <div class="flex space-x-3 items-center " *ngIf="user">
+          <button (click)="logout()" class="p-2 text-lg lg:text-xltext-decoration-none font-sec text-white hover:text-for transition-all duration-200 focus:outline-none active:outline-none">Log Out</button>
+          <button routerLink="../profile/settings" href="#" class=" px-3 py-2.5  lg:px-4 lg:py-3 bg-sec rounded-full text-lg lg:text-xl font-sec text-white hover:bg-for transition-all duration-200 hover:-translate-y-0.5  hover:shadow-sm hover:shadow-for">Profile</button>
+        </div>
+      </div>
+      <!-- menu -->
+      <div class="md:hidden  flex space-x-1.5  items-center justify-center">
+        <i (click)="goback()" *ngIf="where === 'all'"  class=' bx bx-left-arrow-alt text-3xl lg:text-3xl cursor-pointer hover:text-for hover:translate-x-0.5 transition-all duration-200' ></i>
+        <i routerLink="../cart" [matBadge]="num" matBadgeSize="medium" matBadgePosition="after" matBadgeColor="accent" class='  bx bx-shopping-bag text-2xl cursor-pointer hover:text-for hover:translate-x-0.5 transition-all duration-200' ></i>
+        <div id="menu-icon" (click)="openMenu()" class="w-[24px] md:hidden  cursor-pointer mr-4 h-[24px] relative transition-all duration-200">
+          <div class="top"></div>
+          <div class="middle"></div>
+          <div class="bottom"></div>
+        </div>
+      </div>
+      <!-- list smale -->
+      <div id="menu-itmes" (click)="closeMenu()" class="absolute scale-y-0 z-50 transition-all duration-200  top-20  left-0 px-6 py-4 w-screen  ">
+        <div class="flex  flex-col space-y-6 rounded-2xl bg-prim p-4 w-full items-center justify-center ">
+          <div class="flex flex-col space-y-6 w-full ">
+            <h1  (click)="gosearch()" *ngIf="where === 'main'" id="buttons"  class="font-sec font-semibold text-white text-xl w-full cursor-pointer hover:text-black transition-all duration-150 text-center ">Search</h1>
+            <h1 (click)="golove()" *ngIf="user" id="buttons" class="font-sec font-semibold text-white text-xl w-full cursor-pointer hover:text-thr transition-all duration-150 text-center">Wishlist</h1>
+            <h1 routerLink="../cart" id="buttons" class="font-sec font-semibold text-white text-xl w-full cursor-pointer hover:text-thr transition-all duration-150 text-center">Bag</h1>
+          </div>
+          <div class="w-full h-[1px] bg-white"></div>
+          <div class="flex flex-col space-y-6 w-full " *ngIf="!user">
+            <h1 routerLink="../login" class="font-sec font-semibold text-white text-xl w-full cursor-pointer hover:text-thr transition-all duration-150 text-center">Login</h1>
+            <h1 routerLink="../signup" class="font-sec font-semibold text-white text-xl w-full cursor-pointer hover:bg-thr hover:text-black transition-all duration-150 text-center bg-for rounded-full px-4 py-3">Sign Up</h1>
+          </div>
+          <div class="flex flex-col space-y-6 w-full " *ngIf="user">
+            <h1 (click)="logout()" class="font-sec font-semibold text-white text-xl w-full cursor-pointer hover:text-thr transition-all duration-150 text-center">Logout</h1>
+            <h1 routerLink="../profile/settings" class="font-sec font-semibold text-white text-xl w-full cursor-pointer hover:bg-thr hover:text-black transition-all duration-150 text-center bg-for rounded-full px-4 py-3">Sign Up</h1>
+          </div>
+          <!-- <div class="flex flex-col space-y-6 w-full ">
+            <h1 class="font-sec font-semibold text-white text-xl w-full cursor-pointer hover:bg-thr hover:text-black transition-all duration-150 text-center bg-for rounded-full px-4 py-3">Profile</h1>
+          </div> -->
+        </div>
+
+      </div>
+    </div>
+  </div>
+</header>
+

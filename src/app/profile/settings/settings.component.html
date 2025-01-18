@@ -1,0 +1,61 @@
+
+
+
+
+<body>
+  <div class="w-full flex flex-col max-w-6xl md:px-0 lg:px-24 space-y-14">
+    <!-- section_1 -->
+    <div class="w-full space-y-8">
+      <h1 class="text-prim font-sec font-semibold text-xl md:text-2xl">YOUR ACCOUNT SETTING</h1>
+    <form [formGroup]="myform" (ngSubmit)="onSubmit()" class="flex flex-col items-start space-y-4 w-full">
+      <div class="w-full space-y-2">
+        <h1 class="text-lg font-prim text-sec">Name</h1>
+        <mat-form-field class="w-full">
+          <mat-label>Name</mat-label>
+          <input matInput required type="text" formControlName="name">
+        </mat-form-field>
+      </div>
+      <div class="w-full space-y-2">
+        <h1 class="text-lg font-prim text-sec">Email address</h1>
+        <mat-form-field class="w-full">
+          <mat-label>Email Address</mat-label>
+          <input matInput required type="text" formControlName="email">
+        </mat-form-field>
+      </div>
+      <button type="submit" matRipple class="bg-sec ml-auto text-white font-prim px-5 py-2 rounded-full hover:brightness-110 transition-all duration-200">SAVE SETTINGS</button>
+    </form>
+    </div>
+    <div class="w-full bg-sec h-1"></div>
+
+    <!-- password form -->
+
+    <div class="w-full space-y-8">
+      <h1 class="text-prim font-sec font-semibold text-2xl">PASSWORD CHANGE</h1>
+    <form [formGroup]="myform2" (ngSubmit)="onSubmit2()" class="flex flex-col items-start space-y-4 w-full">
+      <div class="w-full space-y-2">
+        <h1 class="text-lg font-prim text-sec">Current password</h1>
+        <mat-form-field class="w-full">
+          <mat-label>Current password</mat-label>
+          <input matInput required type="text" formControlName="currentPassword">
+        </mat-form-field>
+      </div>
+      <div class="w-full space-y-2">
+        <h1 class="text-lg font-prim text-sec">New password</h1>
+        <mat-form-field class="w-full">
+          <mat-label>New password</mat-label>
+          <input matInput required type="text" formControlName="newPassword">
+        </mat-form-field>
+      </div>
+      <div class="w-full space-y-2">
+        <h1 class="text-lg font-prim text-sec">Confirm password</h1>
+        <mat-form-field class="w-full">
+          <mat-label>Confirm password</mat-label>
+          <input matInput required type="text" formControlName="confirmPassword">
+        </mat-form-field>
+      </div>
+      <button type="submit" matRipple class="bg-sec ml-auto text-white font-prim px-5 py-2 rounded-full hover:brightness-110 transition-all duration-200">SAVE PASSWORD</button>
+    </form>
+    </div>
+
+  </div>
+</body>

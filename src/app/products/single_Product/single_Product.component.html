@@ -1,0 +1,191 @@
+
+<section id="single" class=" scroll-smooth">
+  <div class="bg-sec flex items-center justify-center flex-col min-h-screen p-2 md:p-8 space-y-24">
+    <div *ngIf="!loading"  class="flex flex-col items-center space-y-8 p-2 md:p-6">
+      <!-- main area -->
+      <div class="flex items-center md:space-x-8 space-x-0 max-w-6xl justify-between flex-col md:flex-row p-2 md:p-8 border border-for rounded-2xl mx-auto">
+        <!-- image -->
+        <div class="w-full md:w-2/3 md:p-2 z-0 overflow-hidden  fc space-y-2 mb-4">
+          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+              </ol>
+              <div class="carousel-inner" *ngIf="product">
+                <!-- item1 -->
+                <div class="  carousel-item active cursor-pointer group overflow-hidden">
+                  <img  class="d-block    group-hover:scale-105 transition-all duration-150" src="{{product?.main_img}}" alt="First slide">
+                  <!-- <img  class="d-block   group-hover:scale-105 transition-all duration-150" src="http://127.0.0.1:3000/public/images/{{product.main_img}}" alt="First slide"> -->
+                </div>
+                <!-- item2 -->
+                <div class="carousel-item cursor-pointer group overflow-hidden" *ngFor="let x of product.sub_img">
+                  <img  class="d-block w-100 group-hover:scale-105 transition-all duration-150" src="{{x}}" alt="Second slide">
+                  <!-- <img  class="d-block w-100 group-hover:scale-105 transition-all duration-150" src="http://127.0.0.1:3000/public/images/{{x}}" alt="Second slide"> -->
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class=" carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+              <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet"/>
+            </div>
+            </div>
+        </div>
+        <!-- content -->
+        <div class="flex flex-col items-center w-full md:w-[36%] space-y-6">
+          <div class="flex flex-col items-start text-center justify-start ">
+            <h1 class="title text-end w-full font-sec font-semibold text-white max-w-md md:leading-6 tracking-wide text-2xl md:text-2xl lg:text-2xl">{{product?.name}}</h1>
+            <h1 class="title text-end text-sm leading-5 md:leading-6  text-thr md:text-sm lg:text-sm">{{product?.ingredients}}</h1>
+          </div>
+          <div class="h-0.5 bg-for w-full "></div>
+          <!-- content -->
+          <div class="fc space-y-1 justify-end items-center  w-full">
+            <!-- PRICE -->
+            <div class="flex text-white items-center  justify-end space-x-4  w-full">
+              <div class="flex items-center w-1/2 space-x-2">
+                <p class="text-lg  mt-1 w-full text-end font-sec font-semibold">{{product?.finalPrice}} KWD</p>
+                <p *ngIf="product?.discount != 0" class="text-lg text-for mt-1 w-full text-end font-sec font-semibold line-through">{{product?.price}} KWD</p>
+              </div>
+              <p class="text-xl  text-end font-sec font-semibold">: السعر</p>
+            </div>
+            <!-- SIZE -->
+            <div class="flex text-white items-center  justify-end space-x-4  w-full">
+              <div class="flex items-center w-1/2 space-x-2">
+                <p class="text-lg  mt-1 w-full text-end font-sec font-semibold">{{product?.size}}</p>
+              </div>
+              <p class="text-xl  text-end font-sec font-semibold"> : الحجم</p>
+            </div>
+            <!-- TYPE -->
+            <div class="flex text-white items-center  justify-end space-x-4  w-full">
+              <div class="flex items-center w-1/2 space-x-2">
+                <p class="text-lg  mt-1 w-full text-end font-sec font-semibold">{{product?.category}}</p>
+              </div>
+              <p class="text-xl  text-end font-sec font-semibold"> : النوع</p>
+            </div>
+            <!-- code -->
+            <div class="flex text-white items-center  justify-end space-x-4  w-full">
+              <div class="flex items-center w-1/2 space-x-2">
+                <p class="text-lg  mt-1 w-full text-end font-sec font-semibold">{{product?.code}}</p>
+              </div>
+              <p class="text-xl  text-end font-sec font-semibold"> : الكود</p>
+            </div>
+            <!-- quatati -->
+            <div class="flex text-white items-center  justify-end space-x-4  w-full">
+              <div class="flex items-center border border-for w-1/3">
+                <div (click)="add()" class=" cursor-pointer active:bg-thr w-1/3 text-center bg-for select-none">+</div>
+                <div  class="w-1/3 text-center">{{quan}}</div>
+                <div (click)="minus()" class=" cursor-pointer active:bg-thr w-1/3 text-center bg-for select-none">-</div>
+              </div>
+              <h1 class="text-xl mt-1.5 text-end font-sec font-semibold"> : الكمية</h1>
+            </div>
+          </div>
+          <!-- payment -->
+          <div class="dc w-full space-y-2">
+            <div class="flex px-6 items-center justify-between w-full rounded-3xl transition-all duration-200 bg-for hover:bg-thr hover:-translate-y-0.5 hover:shadow-xl">
+              <i class=' cursor-pointer bx bx-cart-download text-2xl' ></i>
+              <button (click)="addToCart(product?._id)" class="py-2 text-white w-full focus:outline-none">
+                أضافة الي سلة المشتريات
+              </button>
+            </div>
+            <div class="flex px-6 items-center justify-between w-full rounded-3xl transition-all duration-200 bg-for hover:bg-thr hover:-translate-y-0.5 hover:shadow-xl">
+              <i class=' cursor-pointer bx bxs-heart text-2xl text-red-500' ></i>
+              <button (click)="love()" class="py-2 text-white w-full focus:outline-none">
+                  أضافة الي العناصر المفضلة
+              </button>
+            </div>
+            <div class="flex px-6 items-center justify-between w-full rounded-3xl transition-all duration-200 bg-for hover:bg-thr hover:-translate-y-0.5 hover:shadow-xl">
+              <i class=' cursor-pointer bx bxs-cart text-2xl' ></i>
+              <button routerLink="../../cart" class="py-2 text-white w-full focus:outline-none">
+                  الذهاب الي سلة المشتريات
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- carsoul -->
+    <section *ngIf="!loading" id="carsoul ">
+      <div class="max-w-7xl p-4 mx-auto space-y-10">
+        <h1 class="title text-center text-white  md:text-end text-2xl md:text-2xl lg:text-5xl">عناصر من نفس التصنيف</h1>
+        <!-- carsoul -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <div class="container-fluid">
+          <div id="carouselExample" class="carouselPrograms carousel slide" data-ride="carousel" data-interval="false">
+              <div *ngIf="caregorydata" class="carousel-inner row w-100 mx-auto" role="listbox">
+                  <div class="carousel-item col-md-4  active">
+                    <div class="panel panel-default">
+                        <div class="panel-thumbnail">
+                          <a (click)="getonedata(caregorydata[5]?._id)"  title="{{caregorydata[5]?.name}}" class="thumb cursor-pointer">
+                            <img class="img-fluid mx-auto d-block" src="{{caregorydata[5]?.main_img}}" alt="slide 1">
+                          </a>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="carousel-item col-md-4  ">
+                    <div class="panel panel-default">
+                        <div class="panel-thumbnail">
+                          <a (click)="getonedata(caregorydata[4]?._id)"  title="{{caregorydata[4]?.name}}" class="thumb cursor-pointer">
+                            <img class="img-fluid mx-auto d-block" src="{{caregorydata[4]?.main_img}}" alt="slide 1">
+                          </a>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="carousel-item col-md-4  ">
+                    <div class="panel panel-default">
+                        <div class="panel-thumbnail">
+                          <a (click)="getonedata(caregorydata[3]?._id)"  title="{{caregorydata[3]?.name}}" class="thumb cursor-pointer">
+                            <img class="img-fluid mx-auto d-block" src="{{caregorydata[3]?.main_img}}"alt="slide 1">
+                          </a>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="carousel-item col-md-4  ">
+                    <div class="panel panel-default">
+                        <div class="panel-thumbnail">
+                          <a (click)="getonedata(caregorydata[2]?._id)"  title="{{caregorydata[2]?.name}}" class="thumb cursor-pointer">
+                            <img class="img-fluid mx-auto d-block" src="{{caregorydata[2]?.main_img}}" alt="slide 1">
+                          </a>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="carousel-item col-md-4  ">
+                    <div class="panel panel-default">
+                        <div class="panel-thumbnail">
+                          <a (click)="getonedata(caregorydata[1]?._id)"  title="{{caregorydata[1]?.name}}" class="thumb cursor-pointer">
+                            <img class="img-fluid mx-auto d-block" src="{{caregorydata[1]?.main_img}}" alt="slide 1">
+                          </a>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="carousel-item col-md-4  ">
+                    <div class="panel panel-default">
+                        <div class="panel-thumbnail">
+                          <a (click)="getonedata(caregorydata[0]?._id)"  title="{{caregorydata[0]?.name}}" class="thumb cursor-pointer">
+                            <img class="img-fluid mx-auto d-block" src="{{caregorydata[0]?.main_img}}" alt="slide 1">
+                          </a>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next text-faded" href="#carouselExample" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+              </a>
+          </div>
+      </div>
+      </div>
+    </section>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet"/>
+    <app-spinner *ngIf="loading" class=" pb-36" ></app-spinner>
+  </div>
+</section>

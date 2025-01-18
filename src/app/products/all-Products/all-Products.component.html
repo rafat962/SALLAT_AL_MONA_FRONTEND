@@ -1,0 +1,102 @@
+
+
+<section id="all-products" >
+  <div class="bg-sec w-full min-h-screen ">
+    <div [@divstate]="state" class="flex flex-col items-center space-y-8 p-4 md:p-8  py-16">
+      <!-- message -->
+      <div id="top" class="w-full fc" data-aos="fade-down">
+        <div class="fc shadow-2xl cursor-pointer   p-4 max-w-3xl border-2 space-y-4 border-for rounded-2xl text-center">
+          <h1 class="title font-sec font-semibold text-white max-w-md md:leading-10 tracking-wide text-2xl md:text-2xl lg:text-3xl">{{main_title}}</h1>
+          <h1 id="sub" class="title text-lg leading-7 md:leading-[3.5rem]  text-for md:text-xl lg:text-2xl">{{sub_title}}</h1>
+        </div>
+      </div>
+      <!-- search -->
+      <div class="py-3 px-6 md:px-8 md:py-5 md:w-fit flex items-center justify-between space-x-2  rounded-full bg-for">
+        <div class="relative">
+          <i (click)="search(searchh.value)" class='bx bx-search-alt absolute top-1 cursor-pointer right-2 text-2xl active:text-blue-500 '></i>
+          <input #searchh type="search"  class="rounded-full p-2 px-8 " placeholder="search">
+        </div>
+        <!-- selcet -->
+        <!-- in smale screen -->
+        <div class="md:hidden">
+          <i id="filtter"  mat-button [matMenuTriggerFor]="menu" class='bx bx-filter-alt md:hidden text-xl'></i>
+          <mat-menu #menu (change)="onSelectChange($event)" id="countries" class="bg-white border border-gray-300 p-2 px-2.5 rounded-xl text-sm focus:ring-blue-500 focus:border-blue-500 block w-full  text-black">
+            <option value="كل"  mat-menu-item>كل المنتجات</option>
+            <option value="زعتر"  mat-menu-item>زعتر و سماق</option>
+            <option value="مكسرات"  mat-menu-item>مكسرات</option>
+            <option value="لبنة" mat-menu-item>لبنة و جن</option>
+            <option value="مجففات و ورقيات"  mat-menu-item>مجففات و ورقيات</option>
+            <option value="زيت و زيتون"  mat-menu-item>زيت و زيتون</option>
+            <option value="جميد و سمن"  mat-menu-item>جميد و سمن</option>
+            <option value="مربي و عسل و حلاوة"  mat-menu-item>مربي و عسل و حلاوة</option>
+            <option value="مخلل"   mat-menu-item>مخلل</option>
+            <option value="خل و دبس"  mat-menu-item>خل و دبس</option>
+            <option value="العروض" mat-menu-item>العروض</option>
+          </mat-menu>
+        </div>
+        <!-- in meduim screen -->
+        <div class="md:block hidden">
+          <select #menu  (change)="onSelectChange($event)" id="countries" class="bg-white border border-gray-300 p-2 px-2.5 rounded-xl text-sm focus:ring-blue-500 focus:border-blue-500 block w-full  text-black" [(ngModel)]="cate">
+            <option value="كل"  mat-menu-item>كل المنتجات</option>
+            <option value="زعتر"  mat-menu-item>زعتر و سماق</option>
+            <option value="مكسرات"  mat-menu-item>مكسرات</option>
+            <option value="لبنة" mat-menu-item>لبنة و جن</option>
+            <option value="مجففات و ورقيات"  mat-menu-item>مجففات و ورقيات</option>
+            <option value="زيت و زيتون"  mat-menu-item>زيت و زيتون</option>
+            <option value="جميد و سمن"  mat-menu-item>جميد و سمن</option>
+            <option value="مربي و عسل و حلاوة"  mat-menu-item>مربي و عسل و حلاوة</option>
+            <option value="مخلل"   mat-menu-item>مخلل</option>
+            <option value="خل و دبس"  mat-menu-item>خل و دبس</option>
+            <option value="مشكلات" mat-menu-item>مشكلات</option>
+            <option value="العروض" mat-menu-item>العروض</option>
+          </select>
+        </div>
+      </div> 
+      <!-- products -->
+      <div *ngIf="!loading" class="grid gap-2 md:gap-6 grid-cols-2 md:grid-cols-4 rounded-xl">
+        <!-- card -->
+        <div  class="flex flex-col items-center bg-for rounded-xl" *ngFor="let x of products;let i = index">
+          <div class="group overflow-hidden relative rounded-t-lg cursor-pointer">
+            <img loading="lazy" class="group-hover:scale-105 transition-all duration-200" src="{{x?.main_img}}" alt="{{api}}/public/images/{{x?.main_img}}">
+            <div class=" absolute top-0" *ngIf="x.discount>0">
+              <i class='bx bxs-discount bx-tada text-4xl text-sec' ></i>
+            </div>
+          </div>
+          <div class="p-2 md:p-4 rounded-xl flex flex-col items-center space-y-4 min-w-full ">
+            <!-- header -->
+            <div class="fc space-y-1 ">
+              <h1 class=" title text-end font-sec font-semibold text-white max-w-md md:leading-10 tracking-wide text-sm md:text-lg lg:text-xl">{{x.name}}</h1>
+              <div class="flex items-center justify-center space-x-2" *ngIf="x.discount>0">
+                <p class="text-mg text-white">{{x.finalPrice}}KWD</p>
+                <p class="text-mg text-thr line-through">{{x.price}}KWD</p>
+              </div>
+            </div>
+            <div class=" outline w-full outline-1 outline-thr"></div>
+            <!-- content -->
+            <div class="flex space-y-2 flex-col w-full items-center ">
+              <button routerLink="../{{x._id}}" class="rounded-full w-full font-sec font-semibold text-lg text-gray-700  py-2 bg-white
+                hover:brightness-95 hover:-translate-y-0.5 hover:shadow-md hover:drop-shadow-xs transition-all duration-150">أشتري الان</button>
+              <div class="flex w-full items-center justify-start space-x-1 md:space-x-2">
+                <button (click)="addToCart(x._id)" class="w-4/5 rounded-full  font-sec font-semibold text-sm md:text-lg text-gray-700  py-2 bg-white
+                hover:brightness-95 hover:-translate-y-0.5 hover:shadow-md hover:drop-shadow-xs transition-all duration-150">إضافة الي السلة</button>
+                <div class=" cursor-pointer rounded-full bg-thr flex items-center justify-center active:bg-red-500 transition-all duration-200">
+                  <i   *ngIf="!lovelist.includes(x._id,1)" name="not" class="md:px-3 md:py-2 px-2 py-1 bx bx-heart text-lg md:text-xl"  (click)="love(x._id,$event)"></i>
+                  <i *ngIf="lovelist.includes(x._id,1)" name='love' class="md:px-3 md:py-2 px-2 py-1 bx bxs-heart text-lg md:text-xl text-red-500 "  (click)="love(x._id,$event)"></i>
+                </div>
+              </div>
+              <div class="flex flex-col w-full space-y-2" *ngIf="role === 'admin'">
+                <button (click)="update(x._id)" class="btn-update">update</button>
+                <button (click)="delete(x._id)" class="btn-delete">delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end -->
+      </div>
+      <app-spinner *ngIf="loading" ></app-spinner>
+
+    </div>
+  </div>
+
+</section>
+

@@ -1,0 +1,682 @@
+
+
+
+  <section id="hero" >
+    <script type="text/javascript">
+      (function(d, t) {
+          var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+          v.onload = function() {
+            window.voiceflow.chat.load({
+              verify: { projectID: '65fc710cc80f6a28836c9c4a' },
+              url: 'https://general-runtime.voiceflow.com',
+              versionID: 'production'
+            });
+          }
+          v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+      })(document, 'script');
+    </script>
+
+    <div class="w-ful  bg-sec space-y-16 overflow-x-hidden">
+      <!-- section 1 landing -->
+      <section class="flex flex-col max-w-screen space-y-6 md:space-y-0 md:pt-0  md:justify-between md:items-start items-center pt-8 md:flex-row-reverse   lg:pr-20">
+        <div id="texts" class=" translate-x-[500px] transition-all duration-1000  flex-col lg:text-end text-center md:text-end space-y-1 md:space-y-4 font-sans text-white items-center sm:text-center  md:items-start  md:w-1/2 md:py-16 md:pr-8 lg:pr-2">
+          <h1 class="title  md:text-end text-2xl md:text-2xl lg:text-5xl">من مزارعنا اليكم</h1>
+          <h1 class=" title  md:text-end text-xl md:text-xl lg:text-4xl md:text-gray-100 "  >اهلا بمن أتي بتحية و سلام</h1>
+          <div class=" text-end ">
+            <button routerLink="/signup"  class="hidden text-start md:inline md:w-xl md:text-2xl lg:w-2xl md:mt-0 lg:mt-4 lg:text-3xl bg-for rounded-2xl md:px-5 md:py-1 px-8 py-4 hover:bg-thr hover:text-sec transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-2xl">
+            أنضم إلينا
+            </button>
+          </div>
+          <div class=" md:pl-4   items-start justify-end md:items-end hidden md:flex">
+            <img class="lg:w-[58%] md:w-80 xl:w-3/4" src="../../../assets/undraw_empty_cart_co35.svg" alt="">
+          </div>
+        </div>
+          <img id="main_img" class="translate-x-[-800px] transition-all duration-[1400ms]  w-full md:w-[58%] lg:w-[50%]  lg:bg-black hover:brightness-90 " src="../../../assets/main_img.webp" alt="">
+      </section>
+
+      <!-- section 2 category -->
+      <section class="flex flex-col py-4 items-center justify-center w-full space-y-10" >
+        <h1 class="text-6xl font-sans text-white title" >
+          الأقسام
+        </h1>
+        <div class="grid grid-cols-2 font-semibold text-white font-sans lg:grid-cols-5 grid-row-5 md:grid-rows-2">
+          <div (click)="sendcate('زعتر')" class="relative group overflow-hidden cursor-pointer" data-aos="fade-right">
+            <h1  class="absolute z-40 top-[48%] mx-auto text-4xl  w-full text-center max-w-xl">
+              زعتر و سماق
+            </h1>
+            <img class="w-full group-hover:scale-105 transition-all duration-200" src="../../../assets/صور التصنيفات/زعتر وسماق.webp" alt="">
+          </div>
+          <div (click)="sendcate('مكسرات')" class="relative group overflow-hidden cursor-pointer" data-aos="fade-right">
+            <h1 class="absolute z-40 top-[48%] mx-auto text-4xl  w-full text-center max-w-xl">
+              مكسرات
+            </h1>
+            <img class="w-full group-hover:scale-105 transition-all duration-200" src="../../../assets/صور التصنيفات/مكسرات.webp" alt="">
+          </div>
+          <div (click)="sendcate('لبنة')" class="relative group overflow-hidden cursor-pointer" data-aos="fade">
+            <h1 class="absolute z-40 top-[48%] mx-auto text-4xl  w-full text-center max-w-xl">
+              لبنة و جبنة
+            </h1>
+            <img class="w-full group-hover:scale-105 transition-all duration-200" src="../../../assets/صور التصنيفات/لبنة وجبن.webp" alt="">
+          </div>
+          <div (click)="sendcate('مجففات و ورقيات')" class="relative group overflow-hidden cursor-pointer" data-aos="fade-left">
+            <h1 class="absolute z-40 top-[40%] mx-auto text-4xl  w-full text-center max-w-xl"  >
+              مجففات و ورقيات
+            </h1>
+            <img class="w-full group-hover:scale-105 transition-all duration-200" src="../../../assets/صور التصنيفات/مجففات وورقيات.webp" alt="">
+          </div>
+          <div (click)="sendcate('زيت و زيتون')" class="relative group overflow-hidden cursor-pointer " data-aos="fade-left">
+            <h1 class="absolute  z-50 top-[48%] mx-auto text-4xl  w-full text-center max-w-xl" >
+              زيت و زيتون
+            </h1>
+            <img class="w-full group-hover:scale-105 transition-all duration-200" src="../../../assets/صور التصنيفات/زيت وزيتون.webp" alt="">
+          </div>
+          <div (click)="sendcate('جميد و سمن')" class="relative group overflow-hidden cursor-pointer" data-aos="fade-right">
+            <h1 class="absolute z-40 top-[48%] mx-auto text-4xl  w-full text-center max-w-xl">
+              جميد و سمن
+            </h1>
+            <img class="w-full group-hover:scale-105 transition-all duration-200" src="../../../assets/صور التصنيفات/جميد وسمن.webp" alt="">
+          </div>
+          <div (click)="sendcate('مربي و عسل و حلاوة')" class="relative group overflow-hidden cursor-pointer" data-aos="fade-right">
+            <h1 class="absolute z-40 top-[40%] mx-auto text-4xl  w-full text-center max-w-xl">
+              مربي و عسل و حلاوة
+            </h1>
+            <img class="w-full group-hover:scale-105 transition-all duration-200" src="../../../assets/صور التصنيفات/عسل ومربي وحلاوة.webp" alt="">
+          </div>
+          <div (click)="sendcate('مخلل')" class="relative group overflow-hidden cursor-pointer" data-aos="fade">
+            <h1 class="absolute z-40 top-[48%] mx-auto text-4xl  w-full text-center max-w-xl">
+              مخلل
+            </h1>
+            <img class="w-full group-hover:scale-105 transition-all duration-200" src="../../../assets/صور التصنيفات/مخللات.webp" alt="">
+          </div>
+          <div (click)="sendcate('خل و دبس')" class="relative group overflow-hidden cursor-pointer" data-aos="fade-left">
+            <h1 class="absolute z-40 top-[48%] mx-auto text-4xl  w-full text-center max-w-xl">
+              دبس و خل
+            </h1>
+            <img class="w-full group-hover:scale-105 transition-all duration-200" src="../../../assets/صور التصنيفات/خل ودبس.webp" alt="">
+          </div>
+          <div (click)="sendcate('مشكلات')" class="relative group overflow-hidden cursor-pointer" data-aos="fade-left">
+            <h1 class="absolute z-40 top-[48%] mx-auto text-4xl  w-full text-center max-w-xl">
+              مشكلات
+            </h1>
+            <img class="w-full group-hover:scale-105 transition-all duration-200" src="../../../assets/صور التصنيفات/المشكلات.webp" alt="">
+          </div>
+        </div>
+      </section>
+
+      <!-- section-2 spacil items -->
+      <section  class="flex flex-col py-4 items-center justify-center w-full space-y-4">
+        <div class="flex flex-col items-center space-y-4"  data-aos="fade-down" data-aos-offset="200" >
+          <h1 class="text-4xl font-sans text-white title" >
+            العناصر المميزة لدينا
+          </h1>
+          <h1 class="text-2xl font-sans text-white title">
+            جواهر قائمتنا
+          </h1>
+        </div>
+        <div class="flex flex-col w-full items-center p-4 md:justify-between md:flex-row-reverse md:items-start  space-y-6 md:space-y-0">
+          <div class="fc space-y-4 w-full md:w-1/2 pl-4 " data-aos="fade-left" data-aos-offset="220">
+            <img class="hover:brightness-90 w-3/4 transition-all duration-150 cursor-pointer" src="../../../assets/Olive Oil and Yeast.webp" alt="">
+            <h1 class="text-4xl font-sans text-white title">
+              منتجات الزيوت
+            </h1>
+            <h1 class="text-2xl font-sans text-white title">
+              منتجات مميزة
+            </h1>
+          </div>
+          <div class="grid gap-4 grid-cols-2 md:grid-cols-2 md:w-1/2" data-aos="fade-right" data-aos-offset="220">
+            <!-- item 1 -->
+            <div *ngFor="let x of Zyton_products" class="fc space-y-2">
+              <div class="group overflow-hidden cursor-pointer" routerLink="{{x._id}}">
+                <img class="group-hover:scale-105 transition-all duration-200" src="{{x?.main_img}}" alt="{{api}}/public/images/{{x?.main_img}}">
+              </div>
+              <h1 class=" text-base md:text-xl text-center font-sans text-white title">
+                {{x.name}}
+              </h1>
+              <h1 class="text-lg text-center font-sans text-for title">
+                {{x.category}}
+              </h1>
+              <div class="flex items-center space-x-4">
+                <h1 class="text-lg text-center font-sans text-white title">
+                  {{x.finalPrice}}
+                </h1>
+                <h1 *ngIf="x.discount>0" class="text-lg text-center font-sans text-white title line-through ">
+                  {{x.price}}
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- section-2 offers -->
+      <section id="offers">
+        <div class="flex flex-col   items-center justify-center w-full space-y-6">
+          <div data-aos="flip-up" data-aos-offset="200" class="flex flex-col items-center space-y-4 w-full py-8 bg-gradient-to-r from-emerald-500 to-emerald-900">
+            <h1 class="text-4xl font-sans text-white title">
+              العروض
+            </h1>
+            <h1 (click)="sendcate('عروض')" class="text-2xl text-center max-w-xs md:max-w-xl font-sans text-for title">
+              لدينا العديد من العروض المميزة شاهد الان
+            </h1>
+          </div>
+          <!-- صور العروووض -->
+          <div data-aos="fade-up-right" data-aos-offset="200" class="max-h-2xl max-w-2xl  p-2 overflow-hidden   fc space-y-8 mb-4">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+              <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators" *ngIf="offers_products.length > 0">
+                  <li *ngFor="let x of offers_products; let i = index" [attr.data-target]="'#carouselExampleIndicators'" [attr.data-slide-to]="i" [ngClass]="{'active': i === 0}"></li>
+                </ol>
+                <div class="carousel-inner" *ngIf="offers_products.length > 0">
+                  <!-- item1 -->
+                  <div routerLink="{{offers_products[0]?.name}}" class="carousel-item active cursor-pointer group overflow-hidden">
+                    <img   class="d-block w-100 group-hover:scale-105 transition-all duration-150" src="{{api}}/public/images/{{offers_products[0]?.main_img}}" alt="First slide">
+                  </div>
+                  <!-- item2 -->
+                  <div routerLink="{{x?.name}}" class="carousel-item cursor-pointer group overflow-hidden" *ngFor="let x of offers_products.slice(1)">
+                    <img    class="d-block w-100 group-hover:scale-105 transition-all duration-150" src="{{api}}/public/images/{{x?.main_img}}" alt="Second slide">
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                  <span class=" carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+                <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet"/>
+              </div>
+              </div>
+            <button (click)="sendcate('العروض')" class="py-6 px-4 text-2xl font-sans bg-gradient-to-r bg-for hover:bg-thr rounded-xl hover:shadow-xl
+              hover:-translate-y-1 transition-all duration-200">
+                شاهد المزيد من العروض
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- section TAPS -->
+      <section id="taps">
+        <div class=" max-w-7xl mx-auto">
+          <mat-tab-group dynamicHeight mat-stretch-tabs backgroundColor="primary"  mat-align-tabs="center">
+            <!-- tap 1 اللبنة -->
+            <mat-tab label="منتجات اللبنة">
+              <div class="flex space-y-8 md:space-y-0 p-4 flex-col md:max-h-4xl overflow-hidden items-center justify-center
+                md:flex-row md:items-start md:justify-between  ">
+                <div class="max-w-md  lg:max-w-xl">
+                  <img src="../../../assets/باقي الصور/اللبنة مجمعة.webp" alt="">
+                </div>
+                <div class="grid md:ml-4 gap-4 grid-cols-2 md:grid-cols-2 lg:grid-cols-3 md:w-1/2" data-aos="fade-right">
+                  <!-- item 1 -->
+                  <div class="fc space-y-0.5 " *ngIf="lbna_products.length > 0">
+                    <div class="group overflow-hidden cursor-pointer" routerLink="{{lbna_products[0]?._id}}">
+                      <img class="group-hover:scale-105 transition-all duration-200" src="{{lbna_products[0]?.main_img}}" alt="{{lbna_products[0]?.name}}">
+                    </div>
+                    <h1 class="text-base md:text-xl text-center font-sans text-white title">
+                      {{lbna_products[0]?.name }}
+                    </h1>
+                    <h1 class="text-lg text-center font-sans text-for title">
+                      {{lbna_products[0]?.category}}
+                    </h1>
+                    <div class="flex items-center space-x-4">
+                      <h1 class="text-lg text-center font-sans text-white title">
+                        {{lbna_products[0]?.finalPrice}} KWD
+                      </h1>
+                      <h1 *ngIf="lbna_products[0]?.discount>0" class="text-lg text-center font-sans text-white title line-through ">
+                        {{lbna_products[0]?.price}} KWD
+                      </h1>
+                    </div>
+                  </div>
+                  <!-- item 2 -->
+                  <div class="fc space-y-0.5 " *ngIf="lbna_products.length > 0">
+                    <div class="group overflow-hidden cursor-pointer" routerLink="{{lbna_products[1]?._id}}">
+                      <img class="group-hover:scale-105 transition-all duration-200" src="{{lbna_products[1]?.main_img}}" alt="{{lbna_products[1]?.name}}">
+                    </div>
+                    <h1 class="text-base md:text-xl text-center font-sans text-white title">
+                      {{lbna_products[1]?.name }}
+                    </h1>
+                    <h1 class="text-lg text-center font-sans text-for title">
+                      {{lbna_products[1]?.category}}
+                    </h1>
+                    <div class="flex items-center space-x-4">
+                      <h1 class="text-lg text-center font-sans text-white title">
+                        {{lbna_products[1]?.finalPrice}} KWD
+                      </h1>
+                      <h1 *ngIf="lbna_products[1]?.discount>0" class="text-lg text-center font-sans text-white title line-through ">
+                        {{lbna_products[1]?.price}} KWD
+                      </h1>
+                    </div>
+                  </div>
+                  <!-- item 3 -->
+                  <div class="fc space-y-0.5 " *ngIf="lbna_products.length > 0" >
+                    <div class="group overflow-hidden cursor-pointer" routerLink="{{lbna_products[2]?._id}}">
+                      <img class="group-hover:scale-105 transition-all duration-200" src="{{lbna_products[2]?.main_img}}" alt="{{lbna_products[2]?.name}}">
+                    </div>
+                    <h1 class="text-base md:text-xl text-center font-sans text-white title">
+                      {{lbna_products[2]?.name }}
+                    </h1>
+                    <h1 class="text-lg text-center font-sans text-for title">
+                      {{lbna_products[2]?.category}}
+                    </h1>
+                    <div class="flex items-center space-x-4">
+                      <h1 class="text-lg text-center font-sans text-white title">
+                        {{lbna_products[2]?.finalPrice}} KWD
+                      </h1>
+                      <h1 *ngIf="lbna_products[2]?.discount>0" class="text-lg text-center font-sans text-white title line-through ">
+                        {{lbna_products[2]?.price}} KWD
+                      </h1>
+                    </div>
+                  </div>
+                  <!-- item 4 -->
+                  <div class="fc space-y-0.5 " *ngIf="lbna_products.length > 0" >
+                    <div class="group overflow-hidden cursor-pointer" routerLink="{{lbna_products[3]?._id}}">
+                      <img class="group-hover:scale-105 transition-all duration-200" src="{{lbna_products[3]?.main_img}}" alt="{{lbna_products[3]?.name}}">
+                    </div>
+                    <h1 class="text-base md:text-xl text-center font-sans text-white title">
+                      {{lbna_products[3]?.name }}
+                    </h1>
+                    <h1 class="text-lg text-center font-sans text-for title">
+                      {{lbna_products[3]?.category}}
+                    </h1>
+                    <div class="flex items-center space-x-4">
+                      <h1 class="text-lg text-center font-sans text-white title">
+                        {{lbna_products[3]?.finalPrice}} KWD
+                      </h1>
+                      <h1 *ngIf="lbna_products[3]?.discount>0" class="text-lg text-center font-sans text-white title line-through ">
+                        {{lbna_products[3]?.price}} KWD
+                      </h1>
+                    </div>
+                  </div>
+                  <!-- item 5 -->
+                  <div class="fc hidden lg:fc space-y-0.5 " *ngIf="lbna_products.length > 0" >
+                    <div class="group overflow-hidden cursor-pointer" routerLink="{{lbna_products[4]?._id}}">
+                      <img class="group-hover:scale-105 transition-all duration-200" src="{{lbna_products[4]?.main_img}}" alt="{{lbna_products[4]?.name}}">
+                    </div>
+                    <h1 class="text-base md:text-xl text-center font-sans text-white title">
+                      {{lbna_products[4]?.name }}
+                    </h1>
+                    <h1 class="text-lg text-center font-sans text-for title">
+                      {{lbna_products[4]?.category}}
+                    </h1>
+                    <div class="flex items-center space-x-4">
+                      <h1 class="text-lg text-center font-sans text-white title">
+                        {{lbna_products[4]?.finalPrice}} KWD
+                      </h1>
+                      <h1 *ngIf="lbna_products[4]?.discount>0" class="text-lg text-center font-sans text-white title line-through ">
+                        {{lbna_products[4]?.price}} KWD
+                      </h1>
+                    </div>
+                  </div>
+                  <!-- item 6 -->
+                  <div class=" hidden lg:fc space-y-0.5 " *ngIf="lbna_products.length > 0">
+                    <div class="group overflow-hidden cursor-pointer"  routerLink="{{lbna_products[5]?._id}}">
+                      <img class="group-hover:scale-105 transition-all duration-200" src="{{lbna_products[5]?.main_img}}" alt="{{lbna_products[5]?.name}}">
+                    </div>
+                    <h1 class="text-base md:text-xl text-center font-sans text-white title">
+                      {{lbna_products[5]?.name }}
+                    </h1>
+                    <h1 class="text-lg text-center font-sans text-for title">
+                      {{lbna_products[5]?.category}}
+                    </h1>
+                    <div class="flex items-center space-x-4">
+                      <h1 class="text-lg text-center font-sans text-white title">
+                        {{lbna_products[5]?.finalPrice}} KWD
+                      </h1>
+                      <h1 *ngIf="lbna_products[5]?.discount>0" class="text-lg text-center font-sans text-white title line-through ">
+                        {{lbna_products[5]?.price}} KWD
+                      </h1>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </mat-tab>
+            <!-- tap 2 الزعتر و السمق -->
+            <mat-tab label="زعتر و سماق">
+              <div class="flex space-y-8 md:space-y-0 p-4 flex-col md:max-h-4xl overflow-hidden items-center justify-center
+              md:flex-row md:items-start md:justify-between  ">
+              <div class="max-w-md  lg:max-w-xl">
+                <img src="../../../assets/باقي الصور/زعتر.webp" alt="">
+              </div>
+              <div class="grid md:ml-4 gap-4 grid-cols-2 md:grid-cols-2 lg:grid-cols-3 md:w-1/2" data-aos="fade-right">
+                <!-- item 1 -->
+                <div class="fc space-y-2 " *ngIf="z3ter_products.length > 0" >
+                  <div class="group overflow-hidden cursor-pointer" routerLink="{{z3ter_products[0]?._id}}">
+                    <img class="group-hover:scale-105 transition-all duration-200" src="{{z3ter_products[0]?.main_img}}" alt="{{z3ter_products[0]?.name}}">
+                  </div>
+                  <h1 class="text-xl text-center font-sans text-white title">
+                  {{z3ter_products[0]?.name}}
+                  </h1>
+                  <h1 class="text-lg text-center font-sans text-for title">
+                    {{z3ter_products[0]?.category}}
+                  </h1>
+                  <div class="flex items-center space-x-4">
+                    <h1 class="text-lg text-center font-sans text-white title">
+                      {{z3ter_products[0]?.finalPrice}} KWD
+                    </h1>
+                    <h1  *ngIf="z3ter_products[0]?.discount>0" class="text-lg text-center font-sans text-white title line-through ">
+                      {{z3ter_products[0]?.price}} KWD
+                    </h1>
+                  </div>
+                </div>
+                <!-- item 2 -->
+                <div class="fc space-y-2 " *ngIf="z3ter_products.length > 0">
+                  <div class="group overflow-hidden cursor-pointer" routerLink="{{z3ter_products[1]?._id}}">
+                    <img class="group-hover:scale-105 transition-all duration-200" src="{{z3ter_products[1]?.main_img}}" alt="{{z3ter_products[1]?.name}}">
+                  </div>
+                  <h1 class="text-xl text-center font-sans text-white title">
+                  {{z3ter_products[1]?.name}}
+                  </h1>
+                  <h1 class="text-lg text-center font-sans text-for title">
+                    {{z3ter_products[1]?.category}}
+                  </h1>
+                  <div class="flex items-center space-x-4">
+                    <h1 class="text-lg text-center font-sans text-white title">
+                      {{z3ter_products[1]?.finalPrice}} KWD
+                    </h1>
+                    <h1 *ngIf="z3ter_products[1]?.discount>0" class="text-lg text-center font-sans text-white title line-through ">
+                      {{z3ter_products[1]?.price}} KWD
+                    </h1>
+                  </div>
+                </div>
+                <!-- item 3 -->
+                <div class="fc space-y-2 " *ngIf="z3ter_products.length > 0">
+                  <div class="group overflow-hidden cursor-pointer" routerLink="{{z3ter_products[2]?._id}}">
+                    <img class="group-hover:scale-105 transition-all duration-200" src="{{z3ter_products[2]?.main_img}}" alt="{{z3ter_products[2]?.name}}">
+                  </div>
+                  <h1 class="text-xl text-center font-sans text-white title">
+                  {{z3ter_products[2]?.name}}
+                  </h1>
+                  <h1 class="text-lg text-center font-sans text-for title">
+                    {{z3ter_products[2]?.category}}
+                  </h1>
+                  <div class="flex items-center space-x-4">
+                    <h1 class="text-lg text-center font-sans text-white title">
+                      {{z3ter_products[2]?.finalPrice}} KWD
+                    </h1>
+                    <h1 *ngIf="z3ter_products[2]?.discount>0" class="text-lg text-center font-sans text-white title line-through ">
+                      {{z3ter_products[2]?.price}} KWD
+                    </h1>
+                  </div>
+                </div>
+                <!-- item 4 -->
+                <div class="fc space-y-2 " *ngIf="z3ter_products.length > 0">
+                  <div class="group overflow-hidden cursor-pointer" routerLink="{{z3ter_products[3]?._id}}">
+                    <img class="group-hover:scale-105 transition-all duration-200" src="{{z3ter_products[3]?.main_img}}" alt="{{z3ter_products[3]?.name}}">
+                  </div>
+                  <h1 class="text-xl text-center font-sans text-white title">
+                  {{z3ter_products[3]?.name}}
+                  </h1>
+                  <h1 class="text-lg text-center font-sans text-for title">
+                    {{z3ter_products[3]?.category}}
+                  </h1>
+                  <div class="flex items-center space-x-4">
+                    <h1 class="text-lg text-center font-sans text-white title">
+                      {{z3ter_products[3]?.finalPrice}} KWD
+                    </h1>
+                    <h1 *ngIf="z3ter_products[3]?.discount>0"  class="text-lg text-center font-sans text-white title line-through ">
+                      {{z3ter_products[3]?.price}} KWD
+                    </h1>
+                  </div>
+                </div>
+                <!-- item 5 -->
+                <div class=" hidden lg:fc space-y-2 "  *ngIf="z3ter_products.length > 0">
+                  <div class="group overflow-hidden cursor-pointer" routerLink="{{z3ter_products[4]?._id}}">
+                    <img class="group-hover:scale-105 transition-all duration-200" src="{{z3ter_products[4]?.main_img}}" alt="{{z3ter_products[4]?.name}}">
+                  </div>
+                  <h1 class="text-xl text-center font-sans text-white title">
+                  {{z3ter_products[4]?.name}}
+                  </h1>
+                  <h1 class="text-lg text-center font-sans text-for title">
+                    {{z3ter_products[4]?.category}}
+                  </h1>
+                  <div class="flex items-center space-x-4">
+                    <h1 class="text-lg text-center font-sans text-white title">
+                      {{z3ter_products[4]?.finalPrice}} KWD
+                    </h1>
+                    <h1 *ngIf="z3ter_products[4]?.discount>0" class="text-lg text-center font-sans text-white title line-through ">
+                      {{z3ter_products[4]?.price}} KWD
+                    </h1>
+                  </div>
+                </div>
+                <!-- item 6 -->
+                <div class=" hidden lg:fc space-y-2 "  *ngIf="z3ter_products.length > 0">
+                  <div class="group overflow-hidden cursor-pointer" routerLink="{{z3ter_products[5]?._id}}">
+                    <img class="group-hover:scale-105 transition-all duration-200" src="{{z3ter_products[5]?.main_img}}" alt="{{z3ter_products[5]?.name}}">
+                  </div>
+                  <h1 class="text-xl text-center font-sans text-white title">
+                  {{z3ter_products[5]?.name}}
+                  </h1>
+                  <h1 class="text-lg text-center font-sans text-for title">
+                    {{z3ter_products[5]?.category}}
+                  </h1>
+                  <div class="flex items-center space-x-4">
+                    <h1 class="text-lg text-center font-sans text-white title">
+                      {{z3ter_products[5]?.finalPrice}} KWD
+                    </h1>
+                    <h1 *ngIf="z3ter_products[5]?.discount>0" class="text-lg text-center font-sans text-white title line-through ">
+                      {{z3ter_products[5]?.price}} KWD
+                    </h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </mat-tab>
+            <!-- tap 3 المشكلات -->
+            <mat-tab label="مشكلات">
+              <div class="flex space-y-8 md:space-y-0 p-4 flex-col md:max-h-4xl overflow-hidden items-center justify-center
+              md:flex-row md:items-start md:justify-between  ">
+              <div class="max-w-md  lg:max-w-xl">
+                <img src="../../../assets/باقي الصور/مشكلات.webp" alt="">
+              </div>
+              <div class="grid md:ml-4 gap-4 grid-cols-2 md:grid-cols-2 lg:grid-cols-3 md:w-1/2" data-aos="fade-right">
+                <!-- item 1 -->
+                <div class="fc space-y-2" *ngIf="mshklat_products.length > 0 ">
+                  <div class="group overflow-hidden cursor-pointer" routerLink="{{mshklat_products[0]?._id}}">
+                    <img class="group-hover:scale-105 transition-all duration-200" src="{{mshklat_products[0]?.main_img}}" alt="{{mshklat_products[0]?.name}}">
+                  </div>
+                  <h1 class="text-xl text-center font-sans text-white title">
+                    {{mshklat_products[0]?.name}}
+                  </h1>
+                  <h1 class="text-lg text-center font-sans text-for title">
+                    {{mshklat_products[0]?.category}}
+                  </h1>
+                  <div class="flex items-center space-x-4">
+                    <h1 class="text-lg text-center font-sans text-white title">
+                      {{mshklat_products[0]?.finalPrice}} KWD
+                    </h1>
+                    <h1 *ngIf="mshklat_products[0]?.discount>0" class="text-lg text-center font-sans text-white title line-through ">
+                      {{mshklat_products[0]?.price}} KWD
+                    </h1>
+                  </div>
+                </div>
+                <!-- item 2 -->
+                <div class="fc space-y-2" *ngIf="mshklat_products.length > 0">
+                  <div class="group overflow-hidden cursor-pointer" routerLink="{{mshklat_products[1]?._id}}">
+                    <img class="group-hover:scale-105 transition-all duration-200" src="{{mshklat_products[1]?.main_img}}" alt="{{mshklat_products[1]?.name}}">
+                  </div>
+                  <h1 class="text-xl text-center font-sans text-white title">
+                    {{mshklat_products[1]?.name}}
+                  </h1>
+                  <h1 class="text-lg text-center font-sans text-for title">
+                    {{mshklat_products[1]?.category}}
+                  </h1>
+                  <div class="flex items-center space-x-4">
+                    <h1 class="text-lg text-center font-sans text-white title">
+                      {{mshklat_products[1]?.finalPrice}} KWD
+                    </h1>
+                    <h1 *ngIf="mshklat_products[1]?.discount>0" class="text-lg text-center font-sans text-white title line-through ">
+                      {{mshklat_products[1]?.price}} KWD
+                    </h1>
+                  </div>
+                </div>
+                <!-- item 3 -->
+                <div class="fc space-y-2" *ngIf="mshklat_products.length > 0">
+                  <div class="group overflow-hidden cursor-pointer" routerLink="{{mshklat_products[2]?._id}}">
+                    <img class="group-hover:scale-105 transition-all duration-200" src="{{mshklat_products[2]?.main_img}}" alt="{{mshklat_products[2]?.name}}">
+                  </div>
+                  <h1 class="text-xl text-center font-sans text-white title">
+                    {{mshklat_products[2]?.name}}
+                  </h1>
+                  <h1 class="text-lg text-center font-sans text-for title">
+                    {{mshklat_products[2]?.category}}
+                  </h1>
+                  <div class="flex items-center space-x-4">
+                    <h1 class="text-lg text-center font-sans text-white title">
+                      {{mshklat_products[2]?.finalPrice}} KWD
+                    </h1>
+                    <h1 *ngIf="mshklat_products[2]?.discount>0" class="text-lg text-center font-sans text-white title line-through ">
+                      {{mshklat_products[2]?.price}} KWD
+                    </h1>
+                  </div>
+                </div>
+                <!-- item 4 -->
+                <div class="fc space-y-2" *ngIf="mshklat_products.length > 0">
+                  <div class="group overflow-hidden cursor-pointer" routerLink="{{mshklat_products[3]?._id}}">
+                    <img class="group-hover:scale-105 transition-all duration-200" src="{{mshklat_products[3]?.main_img}}" alt="{{mshklat_products[3]?.name}}">
+                  </div>
+                  <h1 class="text-xl text-center font-sans text-white title">
+                    {{mshklat_products[3]?.name}}
+                  </h1>
+                  <h1 class="text-lg text-center font-sans text-for title">
+                    {{mshklat_products[3]?.category}}
+                  </h1>
+                  <div class="flex items-center space-x-4">
+                    <h1 class="text-lg text-center font-sans text-white title">
+                      {{mshklat_products[3]?.finalPrice}} KWD
+                    </h1>
+                    <h1 *ngIf="mshklat_products[3]?.discount>0" class="text-lg text-center font-sans text-white title line-through ">
+                      {{mshklat_products[3]?.price}} KWD
+                    </h1>
+                  </div>
+                </div>
+                <!-- item 5 -->
+                <div class=" hidden lg:fc space-y-2" *ngIf="mshklat_products.length > 0">
+                  <div class="group overflow-hidden cursor-pointer" routerLink="{{mshklat_products[4]?._id}}">
+                    <img class="group-hover:scale-105 transition-all duration-200" src="{{mshklat_products[4]?.main_img}}" alt="{{mshklat_products[4]?.name}}">
+                  </div>
+                  <h1 class="text-xl text-center font-sans text-white title">
+                    {{mshklat_products[4]?.name}}
+                  </h1>
+                  <h1 class="text-lg text-center font-sans text-for title">
+                    {{mshklat_products[4]?.category}}
+                  </h1>
+                  <div class="flex items-center space-x-4">
+                    <h1 class="text-lg text-center font-sans text-white title">
+                      {{mshklat_products[4]?.finalPrice}} KWD
+                    </h1>
+                    <h1 *ngIf="mshklat_products[4]?.discount>0" class="text-lg text-center font-sans text-white title line-through ">
+                      {{mshklat_products[4]?.price}} KWD
+                    </h1>
+                  </div>
+                </div>
+                <!-- item 6 -->
+                <div class=" hidden lg:fc space-y-2" *ngIf="mshklat_products.length > 0">
+                  <div class="group overflow-hidden cursor-pointer" routerLink="{{mshklat_products[5]?._id}}">
+                    <img class="group-hover:scale-105 transition-all duration-200" src="{{mshklat_products[5]?.main_img}}" alt="{{mshklat_products[5]?.name}}">
+                  </div>
+                  <h1 class="text-xl text-center font-sans text-white title">
+                    {{mshklat_products[5]?.name}}
+                  </h1>
+                  <h1 class="text-lg text-center font-sans text-for title">
+                    {{mshklat_products[5]?.category}}
+                  </h1>
+                  <div class="flex items-center space-x-4">
+                    <h1 class="text-lg text-center font-sans text-white title">
+                      {{mshklat_products[5]?.finalPrice}} KWD
+                    </h1>
+                    <h1 *ngIf="mshklat_products[5]?.discount>0" class="text-lg text-center font-sans text-white title line-through ">
+                      {{mshklat_products[5]?.price}} KWD
+                    </h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </mat-tab>
+          </mat-tab-group>
+        </div>
+      </section>
+
+
+
+      <!-- section MAP -->
+      <section id="maap">
+        <div class="flex flex-col py-4 items-center justify-center w-full space-y-4">
+          <div class="flex flex-col items-center space-y-4"  data-aos="fade-down" >
+            <h1 class="text-4xl font-sans text-white title" >
+                موقعنا
+            </h1>
+            <h1 class="text-2xl text-center max-w-lg leading-9 font-sans text-white title">
+                نحن دائماً في انتظار زيارتكم! تفضلوا بزيارتنا في موقعنا واستمتعوا بتجربة تسوق رائعة
+            </h1>
+          </div>
+          <div data-aos="zoom-in-up" data-aos-offset="220" class="max-w-6xl w-full overflow-hidden rounded-xl ">
+            <div id="viewDiv" class="w-full h-[26rem] rounded-lg"></div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- last Section -->
+      <section id="final">
+        <div class="w-full mx-auto p-2">
+          <div class="grid gap-3 md:gap-5 grid-cols-2 md:grid-cols-4">
+            <!-- item1 -->
+            <div  class="flex flex-col items-center space-y-2">
+              <div class="group overflow-hidden rounded-xl">
+                <img class="group-hover:scale-105 transition-all duration-150 rounded-xl" src="../../../assets/السلات/wepik--20240205194319mahH.png" alt="">
+              </div>
+              <h1 class="text-2xl text-center font-sans text-white title">
+                أختار سلتك المفضلة
+              </h1>
+            </div>
+            <!-- item 2 -->
+            <div data-aos="fade-left" class="flex flex-col items-center space-y-2">
+              <div class="group overflow-hidden rounded-xl">
+                <img class="group-hover:scale-105 transition-all duration-150 rounded-xl" src="../../../assets/السلات/wepik--20240205194333Xg0T.png" alt="">
+              </div>
+              <h1 class="text-2xl text-center font-sans text-white title">
+                هادي أحبابك
+              </h1>
+            </div>
+            <!-- item 3 -->
+            <div data-aos="fade-right" class="flex flex-col items-center space-y-2">
+              <div class="group overflow-hidden rounded-xl">
+                <img class="group-hover:scale-105 transition-all duration-150 rounded-xl" src="../../../assets/السلات/wepik--20240205194347y9JB.png" alt="">
+              </div>
+              <h1 class="text-2xl text-center font-sans text-white title">
+                سلة المونة
+              </h1>
+            </div>
+            <!-- item 4 -->
+            <div data-aos="fade-left" class="flex flex-col items-center space-y-2">
+              <div class="group overflow-hidden rounded-xl">
+                <img class="group-hover:scale-105 transition-all duration-150 rounded-xl" src="../../../assets/السلات/wepik--20240205194401XbRP.png" alt="">
+              </div>
+              <h1 class="text-2xl text-center font-sans text-white title">
+                أملائها بأصنافك المميزة
+              </h1>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+    </div>
+
+    <script type="text/javascript">
+      (function(d, t) {
+          var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+          v.onload = function() {
+            window.voiceflow.chat.load({
+              verify: { projectID: '65ed5682175bb21b06b58009' },
+              url: 'https://general-runtime.voiceflow.com',
+              versionID: 'production'
+            });
+          }
+          v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+      })(document, 'script');
+    </script>
+  </section>
+
